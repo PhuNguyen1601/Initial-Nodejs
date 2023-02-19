@@ -7,6 +7,8 @@ import initWebRoutes from './routes/web';
 import properties from './config/properties';
 import db from './config/db';
 
+import sortMiddleware from './middlewares/sortMiddleware';
+
 let app = express();
 
 // Cors
@@ -25,6 +27,9 @@ let app = express();
 
 // Log
 // app.use(morgan('combined'));
+
+// Custom middlewares
+app.use(sortMiddleware);
 
 // Config app
 app.use(bodyParser.json());
